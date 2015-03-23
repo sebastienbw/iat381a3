@@ -65,7 +65,7 @@ nav a, nav a:visited {
 
 
 nav a:hover, nav a:active, nav a:focus {
-	background-color: #472D38;
+	background-color: #72AD97;
 	opacity: 0.5;
 	color: white;
 	-webkit-transition: background-color 0.5s;
@@ -86,5 +86,29 @@ nav a{
 
 .title {
 	text-align: center;
+	font-size: 3em;
+	margin: 200px auto;
+	color: #72AD97;
+
 }
+
+.subTitle {
+	text-align: center;
+	font-size: 1em;
+	margin: -190px auto;
+	color: #72AD97;
+
+
+}
+
+.fullscreenDiv {
+    background-color: #472D38;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0;
+    position: absolute
+}
+
 
