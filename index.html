@@ -14,6 +14,37 @@
 
 
     <title>IAT 381 | SCAVENGR </title>
+
+    <script type="text/javascript">
+      function picChange(evt){ 
+      //bring selected photo in
+      //get files captured through input
+      var fileInput = evt.target.files;
+      if(fileInput.length>0){
+      //get the file
+      //window url 
+      var windowURL = window.URL || window.webkitURL; 
+      //picture url
+      var picURL = windowURL.createObjectURL(fileInput[0]);
+        }
+      }  
+
+      //get canvas
+      var photoCanvas = document.getElementById("capturedPhoto");
+      var ctx = photoCanvas.getContext("2d");
+      //create image
+      var photo = new Image();
+      photo.onload = function(){
+      //draw photo into canvas when ready
+      ctx.drawImage(photo, 0, 0, 500, 400);
+        };  
+      //load photo into canvas
+      photo.src = picURL;
+      //release object url
+      windowURL.revokeObjectURL(picURL);
+ 
+    </script>
+
   </head>
   
   <body>
@@ -35,7 +66,9 @@
     <section class="title">
       <h1> Scavengr </h1>
 
-      <input type="file" class="take-picture" accept="image/*">
+      <input type="file" class="take-picture" accept="image/*" onchange="picChange(event)">
+      <canvas id="capturedPhoto" width="500" height="400">
+</canvas>
 
       <div class ="colour1"></div>
       <div class ="colour2"></div>
