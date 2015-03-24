@@ -1,38 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Camera API</title>
-        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
-    </head>
+<!DOCTYPE HTML>
 
-    <body>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--       <link rel="icon" type="image/png" href=""> -->
 
-        <div class="container">
-            <h1>Camera API</h1>
+      <!-- Links for CSS -->
+      <link rel="stylesheet" type="text/css" href="css/main.css">
 
-            <section class="main-content">
-                <p>A demo of the Camera API, currently implemented in Firefox and Google Chrome on Android. Choose to take a picture with your device's camera and a preview will be shown through createObjectURL or a FileReader object (choosing local files supported too).</p>
-                
-                <p>
-                    <input type="file" id="take-picture" accept="image/*">
-                </p>
-
-                <h2>Preview:</h2>
-                <p>
-                    <img src="about:blank" alt="" id="show-picture">
-                </p>
-
-                <p id="error"></p>
-
-            </section>
-
-            <p class="footer">All the code is available in the <a href="https://github.com/robnyman/robnyman.github.com/tree/master/camera-api">Camera API repository on GitHub</a>.</p>
-        </div>
+      <!-- Links for Google WebFont -->
 
 
-        <script src="js/base.js"></script>
+    <title>IAT 381 | SCAVENGR </title>
 
+  </head>
+  
+  <body>
+<!--     <nav class="box">
 
-    </body>
+      <div class="box-item-nav">
+        <a href="#"></a>
+      </div>
+      <div class ="box-item-nav">
+        <a href="#"></a>
+      </div>
+      <div class ="box-item-nav">
+        <a><input type="file" id="take-picture" accept="image/*"></a>
+      </div>
+      <div class ="box-item-nav">
+        <a href="#"></a>
+      </div>
+    </nav> -->
+
+    
+
+    <section>
+      
+      <div class ="fullscreenDiv">
+       <h1 class="title"> Scavengr </h1>
+       <h2 class="subTitle"> Lets begin the hunt </h2>
+      </div>
+
+      <input type="file" id="take-picture" accept="image/*">
+
+      <div class="placeholder">
+        <img src="about:blank" alt="" id="show-picture">
+      </div>
+
+<!--       <div class ="colour1"></div>
+      <div class ="colour2"></div>
+      <div class ="colour3"></div>
+      <div class ="colour4"></div>
+      <div class ="colour5"></div> -->
+
+    </section>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+  </body>
 </html>
+
+
+

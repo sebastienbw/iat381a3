@@ -83,7 +83,7 @@ nav a{
 	text-align: center;
 
 }
-
+/*
 .title {
 	text-align: center;
 	font-size: 3em;
@@ -110,5 +110,11 @@ nav a{
     left: 0;
     position: absolute
 }
+*/
 
-
+.placeholder {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	background-color: black;
+}
