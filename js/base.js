@@ -1,3 +1,33 @@
+// create the module and name it scotchApp
+var scavengrApp = angular.module('scavengrApp', ['ngRoute']);
+
+// configure our routes
+scavengrApp.config(function($routeProvider) {
+    $routeProvider
+
+        // route for the home page
+        .when('/splash', {
+            templateUrl : 'pages/splash.html',
+            controller  : 'splashController'
+        })
+
+        // route for the about page
+        .when('/home', {
+            templateUrl : 'pages/home.html',
+            controller  : 'homeController'
+        })
+});
+
+// create the controller and inject Angular's $scope
+scavengrApp.controller('splashController', function($scope) {
+    // create a message to display in our view
+    $scope.message = 'I am Splash Screen';
+});
+
+scavengrApp.controller('homeController', function($scope) {
+    $scope.message = "Honey, I'm Home!";
+});
+
 (function () {
     var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#show-picture");

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html lang="en">
+<html lang="en" ng-app="scavengrApp">
   <head>
     <!-- Meta Tags -->
     <meta charset="utf-8">
@@ -15,9 +15,16 @@
 
     <title>IAT 381 | SCAVENGR </title>
 
+    <script src="js/bower_components/angular/angular.js"></script>
+    <script src="js/bower_components/angular/angular-route/angular-route.js"></script>
+
   </head>
   
   <body>
+    <a href="#home">Home</a>
+    <a href="#splash">Splash</a>
+    <!-- ANGULAR INJECTION -->
+    <div ng-view></div>
 <!--     <nav class="box">
 
       <div class="box-item-nav">
