@@ -19,10 +19,26 @@ scavengrApp.config(function($routeProvider) {
         })
 });
 
+// scavengrApp.factory('loginFactory', function () {
+//     var loggedIn = false;
+//     return {
+//         login: function () {
+//             loggedIn = true;
+//         },
+//         loggedIn: function () {
+//             return loggedIn;
+//         }
+//     }
+// })
+
 // create the controller and inject Angular's $scope
-scavengrApp.controller('splashController', function($scope) {
+scavengrApp.controller('appController', function($scope) {
     // create a message to display in our view
-    $scope.message = 'I am Splash Screen';
+    $scope.isLoggedIn = false;
+    $scope.login = function () {
+        console.log('Trying to log in');
+        $scope.isLoggedIn = true;
+    }
 });
 
 scavengrApp.controller('homeController', function($scope) {
