@@ -1,10 +1,11 @@
+
+
 // create the module and name it scotchApp
 var scavengrApp = angular.module('scavengrApp', ['ngRoute']);
 
 // configure our routes
 scavengrApp.config(function($routeProvider) {
     $routeProvider
-
         // route for the home page
         .when('/splash', {
             templateUrl : 'pages/splash.html',
