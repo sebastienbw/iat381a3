@@ -1,59 +1,38 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Camera API</title>
+        <link rel="stylesheet" href="css/base.css" type="text/css" media="screen">
+    </head>
 
-<html lang="en">
-  <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--       <link rel="icon" type="image/png" href=""> -->
+    <body>
 
-      <!-- Links for CSS -->
-      <link rel="stylesheet" type="text/css" href="css/main.css">
+        <div class="container">
+            <h1>Camera API</h1>
 
-      <!-- Links for Google WebFont -->
+            <section class="main-content">
+                <p>A demo of the Camera API, currently implemented in Firefox and Google Chrome on Android. Choose to take a picture with your device's camera and a preview will be shown through createObjectURL or a FileReader object (choosing local files supported too).</p>
+                
+                <p>
+                    <input type="file" id="take-picture" accept="image/*">
+                </p>
 
+                <h2>Preview:</h2>
+                <p>
+                    <img src="about:blank" alt="" id="show-picture">
+                </p>
 
-    <title>IAT 381 | SCAVENGR </title>
+                <p id="error"></p>
 
-  </head>
-  
-  <body>
-    <nav class="box">
-      <div class="box-item-nav">
-        <a href="#"></a>
-      </div>
-      <div class ="box-item-nav">
-        <a href="#"></a>
-      </div>
-      <div class ="box-item-nav">
-        <a><input type="file" id="take-picture" accept="image/*"></a>
-      </div>
-      <div class ="box-item-nav">
-        <a href="#"></a>
-      </div>
-    </nav>
+            </section>
 
-    <section>
-      
-      <div class ="fullscreenDiv">
-       <h1 class="title"> Scavengr </h1>
-       <h2 class="subTitle"> Lets begin the hunt </h2>
-      </div>
-
-      <button>hey</button>
-
-      <input type="submit" class="myButton" value="">
-
-      <input type="file" class="take-picture" accept="image/*">
+            <p class="footer">All the code is available in the <a href="https://github.com/robnyman/robnyman.github.com/tree/master/camera-api">Camera API repository on GitHub</a>.</p>
+        </div>
 
 
-<!--       <div class ="colour1"></div>
-      <div class ="colour2"></div>
-      <div class ="colour3"></div>
-      <div class ="colour4"></div>
-      <div class ="colour5"></div> -->
+        <script src="js/base.js"></script>
 
-    </section>
 
-  </body>
+    </body>
 </html>
