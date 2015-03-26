@@ -97,26 +97,42 @@ span.glyphicon {
 }
 
 
-/*.title {
+.splashTitle {
+	font-family: pacifico;
 	text-align: center;
 	font-size: 3em;
-	margin: 200px auto;
-	color: #72AD97;
+	padding-top: 5em;
+	color: #E6AF83;
+	margin: 0;
 
 }
 
 .subTitle {
+	font-family: pacifico;
 	text-align: center;
 	font-size: 1em;
-	margin: -190px auto;
-	color: #72AD97;
-}*/
+	color: #E6AF83;
+	margin-bottom: 3em;
+}
 
 .snapshot {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	background-color: black;
+}
+
+#splash a { 
+	font-size: 2em;
+	color: #E6AF83;
+	padding: 0.5em;
+	border: 2px solid #E6AF83;
+	border-radius: 0.5em;
+	text-decoration: none;
+}
+
+#splash a:hover {
+	background-color: #72AD97;
 }
 
 /*.snapshot:before {
@@ -130,8 +146,10 @@ span.glyphicon {
 
 }
 
-#home-screen {
+#splash {
+	position: fixed;
 	background-color: #472D38;
-	padding-top: 100px;
-	padding-bottom: 290px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
