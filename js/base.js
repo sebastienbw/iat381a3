@@ -39,6 +39,12 @@ scavengrApp.controller('appController', function($scope) {
 
 scavengrApp.controller('cameraController', function($scope) {
     $scope.pageTitle = "Camera";
+    $scope.pictureTaken = false;
+
+    $scope.swapImage = function () {
+        $scope.pictureTaken = true;
+        console.log(magic);
+    }
 
     console.log("camera controller");
 
@@ -46,9 +52,9 @@ scavengrApp.controller('cameraController', function($scope) {
         console.log("pucture!")
         var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#show-picture");
-        console.log("page loaded");
+        // console.log("page loaded");
     if (takePicture && showPicture) {
-        share();
+        // share();
         // Set events
         console.log("found camera stuff");
         takePicture.onchange = function (event) {
@@ -58,6 +64,7 @@ scavengrApp.controller('cameraController', function($scope) {
             if (files && files.length > 0) {
                 file = files[0];
                 try {
+                    $scope.swapImage();
                     // Get window.URL object
                     var URL = window.URL || window.webkitURL;
 

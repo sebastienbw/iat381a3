@@ -2,6 +2,6 @@
     <h2 class="title">{{pageTitle}}</h2>
 </div>
 
-<input type="file" id="take-picture" accept="image/*" ng-click="takePicture()">
+<input ng-hide="pictureTaken" type="file" id="take-picture" accept="image/*" ng-click="takePicture()">
 
-<img src="about:blank" alt="" id="show-picture" class="snapshot">
+<img ng-show="pictureTaken" src="about:blank" alt="" id="show-picture" class="snapshot">
