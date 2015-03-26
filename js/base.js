@@ -90,6 +90,16 @@ scavengrApp.config(function($routeProvider) {
             templateUrl : 'pages/camera.html',
             controller  : 'cameraController'
         })
+
+        .when('/imagefeed', {
+            templateUrl : 'pages/imagefeed.html',
+            controller  : 'imageFeedController'
+        })
+
+        .when('/lists', {
+            templateUrl : 'pages/lists.html',
+            controller  : 'listsController'
+        })
 });
 
 // scavengrApp.factory('loginFactory', function () {
@@ -115,7 +125,10 @@ scavengrApp.controller('appController', function($scope) {
 });
 
 scavengrApp.controller('cameraController', function($scope) {
-    $scope.message = "Camera";
+    $scope.pageTitle = "Camera";
+
+    console.log("camera controller");
+
     $scope.takePicture = function () {
         console.log("pucture!")
         var takePicture = document.querySelector("#take-picture"),
@@ -165,6 +178,19 @@ scavengrApp.controller('cameraController', function($scope) {
         };
     }
     };
+});
+
+scavengrApp.controller('imageFeedController', function($scope) {
+    console.log("image feed controller");
+    $scope.pageTitle = "Image Feed";
+    console.log($scope.pageTitle);
+
+});
+
+scavengrApp.controller('listsController', function($scope) {
+    console.log("lists controller");
+    $scope.pageTitle = "Lists";
+    $scope.message = "yo";
 });
 
 // (function () {
