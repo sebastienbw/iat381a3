@@ -9,13 +9,30 @@
 }
 
 #navigation {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
-	height: 3em;
+	height: 3.5em;
 	width: 100%;
 	background-color: #472D38;
 }
 
+.title {
+	font-family: pacifico;
+	color: #E6AF83;
+	text-align: center;
+	position: relative;
+	top: -0.4em;
+
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	height: 4em;
+	width: 100%;
+	background-color: #472D38;
+
+}
 nav a {
 	width: 33.333%;
 	height: 3em;
@@ -30,7 +47,7 @@ span.glyphicon {
     font-size: 2em;
 }
 
- nav a:hover, span.glyphicon:hover {
+ nav a:hover, span.glyphicon:hover,  nav a:focus, span.glyphicon:focus {
 	color: #E6AF83;
 }
 
@@ -68,11 +85,8 @@ span.glyphicon {
 	flex-wrap: wrap;
 }
 
-/* NAV */
 
-
-
-.title {
+/*.title {
 	text-align: center;
 	font-size: 3em;
 	margin: 200px auto;
@@ -85,7 +99,7 @@ span.glyphicon {
 	font-size: 1em;
 	margin: -190px auto;
 	color: #72AD97;
-}
+}*/
 
 .snapshot {
 	width: 100%;
