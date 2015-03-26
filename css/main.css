@@ -87,12 +87,18 @@ span.glyphicon {
 	color: #72AD97;
 }
 
-.placeholder {
-	width: 200px;
-	height: 200px;
-	overflow: hidden;
-	background-color: black;
+.snapshot {
+	width: 100%;
+	height: 100%;
+	/*overflow: hidden;*/
+	/*background-color: black;*/
 }
+/*
+.snapshot:before {
+    content: "";
+    padding-top: 100%;
+    display: block; 
+}*/
 
 #status {
 	text-align: center;
