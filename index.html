@@ -4,18 +4,20 @@
   <head>
     <!-- Meta Tags -->
     <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/camera.png">
 
-      <!-- Links for CSS -->
-      <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Links for CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
-      <!-- Links for Google WebFont -->
-
+    <!-- Links for Google WebFont -->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <title>IAT 381 | SCAVENGR </title>
 
     <script src="js/bower_components/angular/angular.js"></script>
     <script src="js/bower_components/angular/angular-route/angular-route.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
   </head>
   
@@ -30,10 +32,11 @@
 
       <div id="navigation" ng-show="isLoggedIn">
         <nav>
-          <a href="#imagefeed">Image Feed</a><a href="#camera">Camera</a><a href="#lists">Lists</a>
+          <a href="#imageFeed"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a><a href="#camera"><span class="glyphicon glyphicon-camera" aria-hidden="true"></a><a href="#lists"><span class="glyphicon glyphicon-list" aria-hidden="true"></a>
         </nav>
       </div>
     </div>
+
 
 
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
