@@ -1,7 +1,80 @@
+// var request = require('superagent');
 
+
+// console.log("hello world");
+
+// request
+//   .get('https://api.imgur.com/3/gallery/hot/viral/0.json')
+//   .set('Authorization', 'Client-ID 7a7918456680dc8')
+//   .end(function (error, res) {
+//     var parsed = JSON.parse(res.text).data.filter(function (image) {
+//       // return image.type === 'image/jpeg';
+
+//       // image.type:
+//       //
+//       //    'image/jpeg'
+//       //    'image/gif'
+//       //    'image/png'
+//       return /^image\/(jpeg|gif|png)$/.test(image.type);
+//     });
+//     console.log(parsed);
+//     parsed.slice(0, 10).forEach(function(image) {
+//         var img = new Image();
+//         img.src = image.link;
+
+//         document.body.appendChild(img);
+//     });
+//   }.bind(this));
 
 // create the module and name it scotchApp
 var scavengrApp = angular.module('scavengrApp', ['ngRoute']);
+// function share() {
+//   // var canvas = document.createElement('canvas');
+//   // var ctx = canvas.getContext('2d');
+//   // canvas.width = domImage.width;
+//   // canvas.height = domImage.height;
+//   // ctx.drawImage(domImage, 0, 0, canvas.width, canvas.height);
+//   // var img;
+//   // try {
+//   //   img = canvas.toDataURL('image/png', 0.9).split(',')[1];
+//   // } catch(e) {
+//   //   img = canvas.toDataURL().split(',')[1];
+//   // }
+//   var img = "camera.png";
+//   var w = window.open();
+//   return fetch('https://api.imgur.com/3/upload.json', {
+//     method: 'post',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': 'Client-ID 7a7918456680dc8'
+//     },
+//     body: JSON.stringify({
+//       type: 'base64',
+//       name: 'camera.png',
+//       title: 'My Image',
+//       description: 'Made using my super application',
+//       image: img
+//     })
+//   }).then(function (response) {
+//     return response.json();
+//   })
+// }
+
+//  function imgurUpload() {
+//     console.log("hey");
+//     $.ajax({ 
+//     url: 'https://api.imgur.com/3/upload',
+//     headers: {
+//         'Authorization': 'Client-ID 7a7918456680dc8'
+//     },
+//     type: 'POST',
+//     data: {
+//         'image': 'camera.png'
+//     },
+//     success: function() { console.log('cool'); }
+// });
+// }
+
 
 // configure our routes
 scavengrApp.config(function($routeProvider) {
@@ -49,6 +122,7 @@ scavengrApp.controller('cameraController', function($scope) {
         showPicture = document.querySelector("#show-picture");
         console.log("page loaded");
     if (takePicture && showPicture) {
+        share();
         // Set events
         console.log("found camera stuff");
         takePicture.onchange = function (event) {
@@ -66,7 +140,6 @@ scavengrApp.controller('cameraController', function($scope) {
 
                     // Set img src to ObjectURL
                     showPicture.src = imgURL;
-                    
 
                     // Revoke ObjectURL
                     URL.revokeObjectURL(imgURL);
