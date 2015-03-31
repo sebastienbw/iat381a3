@@ -1,7 +1,15 @@
-<div class="header" ng-controller="cameraController">
+<div class="header">
     <h2 class="title">{{pageTitle}}</h2>
 </div>
 
-<input ng-hide="pictureTaken" type="file" id="take-picture" accept="image/*" ng-click="takePicture()">
+<div class="spacer"></div>
 
-<img ng-show="pictureTaken" src="about:blank" alt="" id="show-picture" class="snapshot">
+<div ng-hide="pictureTaken" class="inputPictureBG">
+	<input type="file" id="take-picture" accept="image/*" ng-click="takePicture()">
+</div>
+
+
+<div ng-show="pictureTaken" class="showPictureBG">
+	<img src="about:blank" alt="" id="show-picture" class="snapshot">
+</div>
+
