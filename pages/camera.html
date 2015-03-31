@@ -2,7 +2,7 @@
     <h2 class="title">{{pageTitle}}</h2>
 </div>
 
-<div class="spacer"></div>
+<!-- <div class="spacer"></div> -->
 
 <div ng-hide="pictureTaken" class="inputPictureBG">
 	<input type="file" id="take-picture" accept="image/*" ng-click="takePicture()">
@@ -12,4 +12,5 @@
 <div ng-show="pictureTaken" class="showPictureBG">
 	<img src="about:blank" id="show-picture" class="snapshot">
 </div>
+
 
