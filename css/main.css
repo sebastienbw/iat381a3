@@ -207,6 +207,7 @@ nav span.glyphicon {
 #settings{
 	float: right;
 	padding: 0.25em;
+	z-index: 89;
 }
 
 .toggle-nav {
@@ -234,3 +235,7 @@ transform: translateX(-250px);
 transition: .3s ease all;
 
 }
+
+/*END SLIDE OUT MENU*/
+
+
