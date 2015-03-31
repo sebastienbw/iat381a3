@@ -96,14 +96,15 @@ nav a {
 }
 
 
-span.glyphicon {
+nav span.glyphicon {
     padding: 0.2em;
     font-size: 2em;
 }
 
- nav a:hover, span.glyphicon:hover,  
- nav a:focus, span.glyphicon:focus, 
- nav a:active, span.glyphicon:active {
+ nav a:hover, nav span.glyphicon:hover,  
+ nav a:focus, nav span.glyphicon:focus, 
+ nav a:active, nav span.glyphicon:active,
+ .toggle-nav:hover, .toggle-nav:focus, .toggle-nav:active {
 	color: #E6AF83;
 
 }
@@ -194,4 +195,42 @@ span.glyphicon {
 	width: 100%;
 	height: 100%;
 	text-align: center;
+}
+
+/*SLIDE OUT MENU*/
+.toggle-nav {
+	font-size: 2em;
+	color: white;
+	right: 0;
+}
+
+#settings{
+	float: right;
+	padding: 0.25em;
+}
+
+.toggle-nav {
+	right: 0;
+}
+
+
+#site-menu {
+width: 250px;
+height: 100%;
+position: absolute;
+top: 0;
+right: -250px;
+background: #D6D9BA;
+padding: 15px;
+z-index: 90;
+display: none;
+}
+
+#site-menu.show-nav  {
+display:block;
+-webkit-transform: translateX(-250px);
+transform: translateX(-250px);
+-webkit-transition: .3s ease all;
+transition: .3s ease all;
+
 }

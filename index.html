@@ -38,10 +38,22 @@
       </div>
     </div>
 
+<!-- SLIDE OUT -->
+    <a href="#imagefeed" id="settings" class="toggle-nav"><span class="glyphicon glyphicon-cog" id="settings" aria-hidden="true"></a>
+
+    <div id="site-menu">
+      <a href="#imagefeed" class="toggle-nav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
+      <h2>My Menu</h1>
+      <p class="lead">Put any HTML you want here.</p>
+      <p>Style it however you want.</p>
+    </div>
+<!-- END SLIDE OUT -->
+
 
 
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/base.js"></script>
+    
     <script type="text/javascript">
       $('#imagefeed').click(function() {
           $('#imagefeed').addClass('active');
@@ -56,6 +68,35 @@
           $('#camera, #imagefeed').removeClass('active');
       });            
     </script>
+
+    <script type="text/javascript">
+/*====================================
+=            ON DOM READY            =
+====================================*/
+$(function() {
+$('.toggle-nav').click(function() {
+// Calling a function in case you want to expand upon this.
+toggleNav();
+});
+});
+
+
+/*========================================
+=            CUSTOM FUNCTIONS            =
+========================================*/
+function toggleNav() {
+if ($('#site-menu').hasClass('show-nav')) {
+// Do things on Nav Close
+$('#site-menu').removeClass('show-nav');
+} else {
+// Do things on Nav Open
+$('#site-menu').addClass('show-nav');
+}
+
+//$('#site-wrapper').toggleClass('show-nav');
+}    
+    </script>
+
 
   </body>
 </html>
