@@ -1,3 +1,44 @@
+function imgurShare(imgSrc){
+    console.log("imgur upload beginning");
+    // var canvas = document.createElement('canvas');
+    // var ctx = canvas.getContext('2d');
+    var clientID = '7a7918456680dc8';
+    // var domImage = document.getElementById("#show-picture");
+    console.log(imgSrc);
+    console.log(clientID);
+    // canvas.width = domImage.width;
+    // canvas.height = domImage.height;
+    // ctx.drawImage(domImage, 0, 0, canvas.width, canvas.height);
+    // var img = domImage.src;
+    // try {
+    //   imgSrc = canvas.toDataURL('image/*', 0.9).split(',')[1];
+    // } catch(e) {
+    //   imgSrc = canvas.toDataURL().split(',')[1];
+    // }
+    imgSrc = imgSrc.split(',')[1];
+    // console.log(img);
+    // console.log(imgSrc);
+    return fetch('https://api.imgur.com/3/upload.json', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Client-ID ' + clientID
+      },
+      body: JSON.stringify({
+        type: 'base64',
+        // name: 'myimage.jpg',
+        title: 'My Image',
+        description: 'Made using my super application',
+        image: imgSrc
+      })
+    }).then(function (response) {
+        // console.log(response.json());
+      return response.json();
+    })
+  // }
+
+}
+// console.log(imgur.share);
 // create the module and name it scotchApp
 var scavengrApp = angular.module('scavengrApp', ['ngRoute']);
 
@@ -83,7 +124,7 @@ scavengrApp.controller('cameraController', function($scope) {
                         $scope.pictureTaken = true;
                         $scope.$apply();
 
-
+                        imgurUpload(showPicture.src);
                         // Revoke ObjectURL
                         URL.revokeObjectURL(imgURL);
                     }
@@ -93,11 +134,14 @@ scavengrApp.controller('cameraController', function($scope) {
                             var fileReader = new FileReader();
                             fileReader.onload = function (event) {
                                 showPicture.src = event.target.result;
+                                imgurUpload(showPicture.src);
                             };
                             fileReader.readAsDataURL(file);
                             
                             $scope.pictureTaken = true;
                             $scope.$apply();
+
+                            // imgurUpload();
 
                         }
                         catch (e) {
@@ -126,3 +170,14 @@ scavengrApp.controller('listsController', function($scope) {
     $scope.pageTitle = "Lists";
     $scope.message = "yo";
 });
+
+
+function imgurUpload(imgSrc) {
+    var domImg = document.getElementById('#show-picture');
+    console.log(imgSrc);
+    var result = imgurShare(imgSrc);
+    // console.log(result);
+    result.then(function (data) {
+        console.log(data.data.link);
+    });
+}
