@@ -1,23 +1,63 @@
+var CLIENT_ID = '426538219592-e2laldk043f89f34388h62j34p7kthfh.apps.googleusercontent.com';
+var SCOPES = 'https://www.googleapis.com/auth/drive';
+
+// window.onload = function() {
+//     handleClientLoad();
+// }
+
+/**
+* Called when the client library is loaded to start the auth flow.
+*/
+function handleClientLoad() {
+    window.setTimeout(checkAuth, 1);
+}
+
+/**
+* Check if the current user has authorized the application.
+*/
+function checkAuth() {
+gapi.auth.authorize(
+    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
+    handleAuthResult);
+}
+
+/**
+* Called when authorization server replies.
+*
+* @param {Object} authResult Authorization result.
+*/
+function handleAuthResult(authResult) {
+    var authButton = document.getElementById('authorizeButton');
+    // var filePicker = document.getElementById('filePicker');
+    authButton.style.display = 'none';
+    // filePicker.style.display = 'none';
+    if (authResult && !authResult.error) {
+      // Access token has been successfully retrieved, requests can be sent to the API.
+      // filePicker.style.display = 'block';
+      // filePicker.onchange = uploadFile;
+      console.log("You've been authorized!");
+    } else {
+      // No access token could be retrieved, show the button to start the authorization flow.
+      authButton.style.display = 'block';
+      authButton.onclick = function() {
+          gapi.auth.authorize(
+              {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
+              handleAuthResult);
+      };
+    }
+}
+
+function submitToDrive() {
+    console.log("yupyeah!");
+}
+
 function imgurShare(imgSrc){
     console.log("imgur upload beginning");
-    // var canvas = document.createElement('canvas');
-    // var ctx = canvas.getContext('2d');
+
     var clientID = '7a7918456680dc8';
-    // var domImage = document.getElementById("#show-picture");
-    console.log(imgSrc);
-    console.log(clientID);
-    // canvas.width = domImage.width;
-    // canvas.height = domImage.height;
-    // ctx.drawImage(domImage, 0, 0, canvas.width, canvas.height);
-    // var img = domImage.src;
-    // try {
-    //   imgSrc = canvas.toDataURL('image/*', 0.9).split(',')[1];
-    // } catch(e) {
-    //   imgSrc = canvas.toDataURL().split(',')[1];
-    // }
+
     imgSrc = imgSrc.split(',')[1];
-    // console.log(img);
-    // console.log(imgSrc);
+
     return fetch('https://api.imgur.com/3/upload.json', {
       method: 'post',
       headers: {
@@ -36,8 +76,8 @@ function imgurShare(imgSrc){
       return response.json();
     })
   // }
-
 }
+
 // console.log(imgur.share);
 // create the module and name it scotchApp
 var scavengrApp = angular.module('scavengrApp', ['ngRoute']);

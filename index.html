@@ -29,6 +29,7 @@
          <h1 class="splashTitle"> Scavengr </h1>
          <h2 class="subTitle"> Let the hunt begin! </h2>
         <a ng-click="login()" href="#imagefeed" id="loginBtn">Log In</a>
+        <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
       </div>
 
       <div id="navigation" ng-show="isLoggedIn">
@@ -69,6 +70,11 @@
           $('#camera, #imagefeed').removeClass('active');
       });            
     </script>
+
+    <script type="text/javascript"
+          src="https://apis.google.com/js/api.js"></script>
+          <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
 
     <script type="text/javascript">
 /*====================================
