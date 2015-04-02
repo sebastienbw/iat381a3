@@ -5,6 +5,8 @@
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="icon" type="image/png" href="img/camera.png">
 
     <!-- Links for CSS -->
@@ -22,6 +24,20 @@
   </head>
   
   <body>
+
+<!-- SLIDE OUT -->
+    <a id="settings" class="toggle-nav"><span class="glyphicon glyphicon-cog" id="settings" aria-hidden="true"></a>
+
+    <div id="site-menu">
+      <a class="toggle-nav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
+      <h2>My Menu</h1>
+      <p class="lead">Put any HTML you want here.</p>
+      <p>Style it however you want.</p>
+    </div>
+<!-- END SLIDE OUT -->
+    
+
+
     <!-- ANGULAR INJECTION -->
     <div ng-view class-"main-view"></div>
     <div ng-controller="appController">
@@ -39,20 +55,9 @@
       </div>
     </div>
 
-<!-- SLIDE OUT -->
-    <a id="settings" class="toggle-nav"><span class="glyphicon glyphicon-cog" id="settings" aria-hidden="true"></a>
-
-    <div id="site-menu">
-      <a href="#imagefeed" class="toggle-nav"><span class="glyphicon glyphicon-remove" aria-hidden="true"></a>
-      <h2>My Menu</h1>
-      <p class="lead">Put any HTML you want here.</p>
-      <p>Style it however you want.</p>
-    </div>
-<!-- END SLIDE OUT -->
-
-
-
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/hammer.js"></script>
     <script type="text/javascript" src="js/bower_components/fetch/fetch.js"></script>
     <script type="text/javascript" src="js/base.js"></script>
     
@@ -77,33 +82,39 @@
 
 
     <script type="text/javascript">
-/*====================================
-=            ON DOM READY            =
-====================================*/
-$(function() {
-$('.toggle-nav').click(function() {
-// Calling a function in case you want to expand upon this.
-toggleNav();
-});
-});
+      /*====================================
+      =            ON DOM READY            =
+      ====================================*/
+      $(function() {
+      $('.toggle-nav').click(function() {
+      // Calling a function in case you want to expand upon this.
+      toggleNav();
+      });
+      });
 
 
-/*========================================
-=            CUSTOM FUNCTIONS            =
-========================================*/
-function toggleNav() {
-if ($('#site-menu').hasClass('show-nav')) {
-// Do things on Nav Close
-$('#site-menu').removeClass('show-nav');
-} else {
-// Do things on Nav Open
-$('#site-menu').addClass('show-nav');
-}
+      /*========================================
+      =            CUSTOM FUNCTIONS            =
+      ========================================*/
+      function toggleNav() {
+      if ($('#site-menu').hasClass('show-nav')) {
+      // Do things on Nav Close
+      $('#site-menu').removeClass('show-nav');
+      } else {
+      // Do things on Nav Open
+      $('#site-menu').addClass('show-nav');
+      }
 
-//$('#site-wrapper').toggleClass('show-nav');
-}    
+      //$('#site-wrapper').toggleClass('show-nav');
+      }    
     </script>
-
+    <script type="text/javascript">
+    var swipePad = document.getElementById('swipePad');
+    var hammertime = new Hammer(swipePad);
+    hammertime.on("panleft panright tap press", function(ev) {
+        console.log (ev.type +" gesture detected.");
+    });
+    </script>
 
   </body>
 </html>
