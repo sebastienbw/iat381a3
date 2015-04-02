@@ -55,6 +55,8 @@
     </div>
 
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/hammer.js"></script>
     <script type="text/javascript" src="js/bower_components/fetch/fetch.js"></script>
     <script type="text/javascript" src="js/base.js"></script>
     
@@ -74,33 +76,39 @@
     </script>
 
     <script type="text/javascript">
-/*====================================
-=            ON DOM READY            =
-====================================*/
-$(function() {
-$('.toggle-nav').click(function() {
-// Calling a function in case you want to expand upon this.
-toggleNav();
-});
-});
+      /*====================================
+      =            ON DOM READY            =
+      ====================================*/
+      $(function() {
+      $('.toggle-nav').click(function() {
+      // Calling a function in case you want to expand upon this.
+      toggleNav();
+      });
+      });
 
 
-/*========================================
-=            CUSTOM FUNCTIONS            =
-========================================*/
-function toggleNav() {
-if ($('#site-menu').hasClass('show-nav')) {
-// Do things on Nav Close
-$('#site-menu').removeClass('show-nav');
-} else {
-// Do things on Nav Open
-$('#site-menu').addClass('show-nav');
-}
+      /*========================================
+      =            CUSTOM FUNCTIONS            =
+      ========================================*/
+      function toggleNav() {
+      if ($('#site-menu').hasClass('show-nav')) {
+      // Do things on Nav Close
+      $('#site-menu').removeClass('show-nav');
+      } else {
+      // Do things on Nav Open
+      $('#site-menu').addClass('show-nav');
+      }
 
-//$('#site-wrapper').toggleClass('show-nav');
-}    
+      //$('#site-wrapper').toggleClass('show-nav');
+      }    
     </script>
-
+    <script type="text/javascript">
+    var swipePad = document.getElementById('swipePad');
+    var hammertime = new Hammer(swipePad);
+    hammertime.on("panleft panright tap press", function(ev) {
+        console.log (ev.type +" gesture detected.");
+    });
+    </script>
 
   </body>
 </html>
