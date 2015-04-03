@@ -19,11 +19,20 @@
 
     <script src="js/bower_components/angular/angular.js"></script>
     <script src="js/bower_components/angular/angular-route/angular-route.js"></script>
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script type="text/javascript"
+          src="https://apis.google.com/js/api.js"></script>
+          <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+          
+          <script type="text/javascript" src="js/realtime-client-utils.js"></script>
+          <script type="text/javascript" src="js/drive.js"></script>
+          <script type="text/javascript" src="js/base.js"></script>
 
   </head>
   
-  <body>
+  <body onLoad='startRealtime()'>
 
 <!-- SLIDE OUT -->
     <a id="settings" class="toggle-nav"><span class="glyphicon glyphicon-cog" id="settings" aria-hidden="true"></a>
@@ -44,8 +53,11 @@
       <div id="splash" ng-hide="isLoggedIn">
          <h1 class="splashTitle"> Scavengr </h1>
          <h2 class="subTitle"> Let the hunt begin! </h2>
+         <!-- <textarea id="editor1" rows="5" cols="50" disabled="true"></textarea>
+  <textarea id="editor2" rows="5" cols="50" disabled="true"></textarea> -->
         <a ng-click="login()" href="#imagefeed" id="loginBtn">Log In</a>
-        <input type="button" id="authorizeButton" style="display: none" value="Authorize" />
+        <br>
+        <button id="authorizeButton" disabled>You must authorize</button>
       </div>
 
       <div id="navigation" ng-show="isLoggedIn">
@@ -59,7 +71,7 @@
     <script type="text/javascript" src="js/hammer.min.js"></script>
     <script type="text/javascript" src="js/hammer.js"></script>
     <script type="text/javascript" src="js/bower_components/fetch/fetch.js"></script>
-    <script type="text/javascript" src="js/base.js"></script>
+    
     
     <script type="text/javascript">
       $('#imagefeed').click(function() {
@@ -76,9 +88,7 @@
       });            
     </script>
 
-    <script type="text/javascript"
-          src="https://apis.google.com/js/api.js"></script>
-          <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  
 
 
     <script type="text/javascript">
@@ -115,6 +125,8 @@
         console.log (ev.type +" gesture detected.");
     });
     </script>
+
+
 
   </body>
 </html>

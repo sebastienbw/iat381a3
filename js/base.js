@@ -1,56 +1,3 @@
-var CLIENT_ID = '426538219592-e2laldk043f89f34388h62j34p7kthfh.apps.googleusercontent.com';
-var SCOPES = 'https://www.googleapis.com/auth/drive';
-
-// window.onload = function() {
-//     handleClientLoad();
-// }
-
-/**
-* Called when the client library is loaded to start the auth flow.
-*/
-function handleClientLoad() {
-    window.setTimeout(checkAuth, 1);
-}
-
-/**
-* Check if the current user has authorized the application.
-*/
-function checkAuth() {
-gapi.auth.authorize(
-    {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': true},
-    handleAuthResult);
-}
-
-/**
-* Called when authorization server replies.
-*
-* @param {Object} authResult Authorization result.
-*/
-function handleAuthResult(authResult) {
-    var authButton = document.getElementById('authorizeButton');
-    // var filePicker = document.getElementById('filePicker');
-    authButton.style.display = 'none';
-    // filePicker.style.display = 'none';
-    if (authResult && !authResult.error) {
-      // Access token has been successfully retrieved, requests can be sent to the API.
-      // filePicker.style.display = 'block';
-      // filePicker.onchange = uploadFile;
-      console.log("You've been authorized!");
-    } else {
-      // No access token could be retrieved, show the button to start the authorization flow.
-      authButton.style.display = 'block';
-      authButton.onclick = function() {
-          gapi.auth.authorize(
-              {'client_id': CLIENT_ID, 'scope': SCOPES, 'immediate': false},
-              handleAuthResult);
-      };
-    }
-}
-
-function submitToDrive() {
-    console.log("yupyeah!");
-}
-
 function imgurShare(imgSrc){
     console.log("imgur upload beginning");
 
@@ -118,6 +65,15 @@ scavengrApp.config(function($routeProvider) {
 
 // create the controller and inject Angular's $scope
 scavengrApp.controller('appController', function($scope) {
+
+    // $scope.imageArray = [];
+
+    // scavengrApp.updateChat = function() {
+    //     $scope.imageArray = scavengrApp.imageArray.asArray();
+    //     $scope.$apply(); //udpate view
+    //     console.log($scope.imageArray);
+    // };
+
     // create a message to display in our view
     $scope.isLoggedIn = false;
     $scope.login = function () {
@@ -202,6 +158,7 @@ scavengrApp.controller('imageFeedController', function($scope) {
     console.log("image feed controller");
     $scope.pageTitle = "Image Feed";
     console.log($scope.pageTitle);
+    updateImageFeed();
 
 });
 
@@ -219,5 +176,19 @@ function imgurUpload(imgSrc) {
     // console.log(result);
     result.then(function (data) {
         console.log(data.data.link);
+        var data = {image: data.data.link};
+        console.log(data);
+        scavengrApp.imageArray.push(data);
     });
+}
+
+function updateImageFeed() {
+    console.log("here");
+    var images = "";
+    for (var i = 0; i < scavengrApp.imageArray.asArray().length; i++) {
+        images = images += scavengrApp.imageArray.asArray()[i];
+        // console.log(scavengrApp.imageArray.asArray());
+    }
+    var txt = document.createTextNode(images);
+    document.getElementById('imageFeedList').appendChild(txt);
 }
