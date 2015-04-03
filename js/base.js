@@ -59,7 +59,7 @@ scavengrApp.config(function($routeProvider) {
 
         .when('/lists', {
             templateUrl : 'pages/lists.html',
-            controller  : 'listsController'
+            // controller  : 'listsController'
         })
 });
 
@@ -165,7 +165,8 @@ scavengrApp.controller('imageFeedController', function($scope) {
 scavengrApp.controller('listsController', function($scope) {
     console.log("lists controller");
     $scope.pageTitle = "Lists";
-    $scope.message = "yo";
+    // $scope.message = "yo";
+    updateListsFeed();
 });
 
 
@@ -194,8 +195,26 @@ function updateImageFeed() {
         // oImg.setAttribute('height', '1px');
         // oImg.setAttribute('width', '1px');
         document.getElementById('imageFeedList').appendChild(img);
-
     }
-    // var txt = document.createTextNode(images);
-    // document.getElementById('imageFeedList').appendChild(txt);
+}
+
+function updateListsFeed() {
+    console.log("here");
+    var listsArray = scavengrApp.listsArray.asArray();
+    for (var i = 0; i < listsArray.length; i++) {
+        // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
+        // console.log(scavengrApp.imageArray.asArray());
+        var list=document.createElement("div");
+        list.setAttribute('style', "background-image: url('" + listsArray[listsArray.length-1-i].images[0] + "')");
+        list.setAttribute('class', 'list-box');
+        // oImg.setAttribute('height', '1px');
+        // oImg.setAttribute('width', '1px');
+
+        var listTitle = document.createElement("h1");
+        // listTitle.setAttribute('text', listsArray[listsArray.length-1-i].name);
+        listTitle.appendChild(document.createTextNode(listsArray[listsArray.length-1-i].name));
+        list.appendChild(listTitle);
+
+        document.getElementById('list-container').appendChild(list);
+    }
 }

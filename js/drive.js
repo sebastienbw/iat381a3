@@ -12,8 +12,10 @@
       console.log("New File Created");
       // var string = model.createString('Hello Realtime World!');
       scavengrApp.imageArray = model.createList([{image: 'http://i.imgur.com/MprxT1s.jpg'}, {image: 'http://i.imgur.com/EE2KJ7P.jpg'}, {image: 'http://i.imgur.com/EwCgQFu.jpg'}, {image: 'http://i.imgur.com/Lr46i2E.jpg'}]);
+      scavengrApp.listsArray = model.createList([{name: 'Dogs', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/MprxT1s.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, {name: 'Take a Hike', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/Lr46i2E.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, {name: 'Valleys', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}]);
       // model.getRoot().set('text', string);
       model.getRoot().set('uploadedImages', scavengrApp.imageArray);
+      model.getRoot().set('uploadedLists', scavengrApp.listsArray);
     }
 
     /**
@@ -27,7 +29,7 @@
       console.log("File Loaded");
       // var string = doc.getModel().getRoot().get('text');
       scavengrApp.imageArray = doc.getModel().getRoot().get('uploadedImages');
-
+      scavengrApp.listsArray = doc.getModel().getRoot().get('uploadedLists');
 
       function imageChange(e) {
           // if (e.isLocal) return;
@@ -37,6 +39,13 @@
       };
       scavengrApp.imageArray.addEventListener(gapi.drive.realtime.EventType.VALUES_ADDED, imageChange);
 
+      function listsChange(e) {
+          // if (e.isLocal) return;
+          console.log('listsChange', e);
+          console.log(scavengrApp.imageArray.asArray());
+          // scavengrApp.updateChat();
+      };
+      scavengrApp.imageArray.addEventListener(gapi.drive.realtime.EventType.VALUES_ADDED, listsChange);
       // // Keeping one box updated with a String binder.
       // var textArea1 = document.getElementById('editor1');
       // gapi.drive.realtime.databinding.bindString(string, textArea1);
