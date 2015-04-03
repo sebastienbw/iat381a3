@@ -54,7 +54,7 @@ scavengrApp.config(function($routeProvider) {
 
         .when('/imagefeed', {
             templateUrl : 'pages/imagefeed.html',
-            controller  : 'imageFeedController'
+            // controller  : 'imageFeedController'
         })
 
         .when('/lists', {
@@ -184,11 +184,18 @@ function imgurUpload(imgSrc) {
 
 function updateImageFeed() {
     console.log("here");
-    var images = "";
-    for (var i = 0; i < scavengrApp.imageArray.asArray().length; i++) {
-        images = images += scavengrApp.imageArray.asArray()[i];
+    var imagesArray = scavengrApp.imageArray.asArray();
+    for (var i = 0; i < imagesArray.length; i++) {
+        // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
         // console.log(scavengrApp.imageArray.asArray());
+        var img=document.createElement("img");
+        img.setAttribute('src', imagesArray[imagesArray.length-1-i].image);
+        img.setAttribute('class', 'image-feed-item');
+        // oImg.setAttribute('height', '1px');
+        // oImg.setAttribute('width', '1px');
+        document.getElementById('imageFeedList').appendChild(img);
+
     }
-    var txt = document.createTextNode(images);
-    document.getElementById('imageFeedList').appendChild(txt);
+    // var txt = document.createTextNode(images);
+    // document.getElementById('imageFeedList').appendChild(txt);
 }
