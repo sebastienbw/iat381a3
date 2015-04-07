@@ -270,6 +270,18 @@ img {
 	height: 100%;
 }
 
+#list-container{
+	padding-top: 4em;
+	padding-bottom: 3.5em;
+}
+
+#list-container h1 {
+	margin: 0;
+	text-align: center;
+	padding: 1.5em;
+	color: #71ac96;
+}
+
 .list-box {
 	width:100%;
 	height:10em;
