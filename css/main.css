@@ -299,9 +299,31 @@ img {
 
 .select-list {
 	position: fixed;
-	bottom: 0;
-	margin-bottom: 3.5em;
+	bottom: 45%;
+	left: 41%;
+	/*margin-bottom: 3.5em;*/
 	background-color: rgba(255,255,255,0.5);
+	text-align: center;
+	padding: 3em;
 }
 
+.select-list p {
+	font-family: 'lato', sans-serif;
+	font-style: italic;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+
+#uploadable-list-options {
+	margin-bottom: 1em;
+}
+
+#submit-image {
+	border: 1px black solid;
+	border-radius: 0.5em;
+	font-family: 'lato', sans-serif;
+	font-size: 1.5em;
+	font-weight: 400;
+	padding: 0.25em;
+}
 
