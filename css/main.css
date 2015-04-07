@@ -278,10 +278,13 @@ img {
 }
 
 #list-container h1 {
+	font-family: 'lato';
+	font-weight: 900;
 	margin: 0;
 	text-align: center;
 	padding: 1.5em;
-	color: #71ac96;
+	color: #E6AF83;
+
 }
 
 .list-box {
@@ -294,7 +297,10 @@ img {
 }
 
 .list-box:hover, .list-box:focus, .list-box:active {
-	opacity: 0.5;
+	background:#472D38;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.75;
 }
 
 #imageFeedList {
@@ -329,6 +335,30 @@ img {
 	position: fixed;
 	background-color: #D6D9BA;
 	width: 100%;
+	text-align: center;
+}
+
+.take-photo2 {
+	position:fixed;
+	width:100%;
+	text-align: center;
+	background-color: #72AD97;
+}
+
+.take-photo2:hover {
+	opacity:0.5;
+}
+
+.list-description p {
+	font-family: 'lato';
+	font-style: italic;
+	font-weight: 400;
+	color: black;
+}
+
+.list-description a {
+	font-family: 'lato';
+	font-weight: 700;
 }
 
 #submit-image {
