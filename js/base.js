@@ -86,6 +86,10 @@ scavengrApp.controller('cameraController', function($scope) {
     $scope.pageTitle = "Camera";
     $scope.pictureTaken = false;
 
+    $("#submit-image").click(function(){
+        addImageToList();
+    });
+
     $scope.swapImage = function () {
         $scope.pictureTaken = true;
     }
@@ -93,7 +97,7 @@ scavengrApp.controller('cameraController', function($scope) {
     console.log("camera controller");
 
     $scope.takePicture = function () {
-        console.log("pucture!")
+        console.log("picture!")
         var takePicture = document.querySelector("#take-picture"),
         showPicture = document.querySelector("#show-picture");
         // console.log("page loaded");
@@ -152,6 +156,8 @@ scavengrApp.controller('cameraController', function($scope) {
             };
         }
     };
+
+    updateUploadableLists();
 });
 
 scavengrApp.controller('imageFeedController', function($scope) {
@@ -199,7 +205,7 @@ function updateImageFeed() {
 }
 
 function updateListsFeed() {
-    console.log("here");
+    console.log("updating lists");
     var listsArray = scavengrApp.listsArray.asArray();
     for (var i = 0; i < listsArray.length; i++) {
         // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
@@ -217,4 +223,44 @@ function updateListsFeed() {
 
         document.getElementById('list-container').appendChild(list);
     }
+}
+
+function updateUploadableLists() {
+    console.log("updating uploadable lists");
+    var listsArray = scavengrApp.listsArray.asArray();
+    for (var i = 0; i < listsArray.length; i++) {
+        // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
+        // console.log(scavengrApp.imageArray.asArray());
+        var list=document.createElement("option");
+        list.setAttribute('value', listsArray[listsArray.length-1-i].name);
+
+        // var listTitle = document.createElement("h1");
+        // // listTitle.setAttribute('text', listsArray[listsArray.length-1-i].name);
+        list.appendChild(document.createTextNode(listsArray[listsArray.length-1-i].name));
+        // list.appendChild(listTitle);
+
+        document.getElementById('uploadable-list-options').appendChild(list);
+    }
+}
+
+function addImageToList() {
+    var list = $('#uploadable-list-options').val();
+    var listsArray = scavengrApp.listsArray.asArray();
+    // console.log(scavengrApp.listsArray.indexOf({name: list}));
+
+    for (var i = 0; i < listsArray.length; i++) {
+        if (listsArray[i].name == list) {
+            listsArray.length++;
+            listsArray[i].images.push("yo");
+            console.log(listsArray[i].images);
+
+            // console.log("new image added: " + scavengrApp.listsArray.asArray()[i]);
+        }
+        
+    }
+    // console.log()
+
+    // scavengrApp.listsArray.push({image: })
+    // console.log(scavengrApp.listsArray.asArray();
+// 
 }
