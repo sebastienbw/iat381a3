@@ -61,6 +61,11 @@ scavengrApp.config(function($routeProvider) {
             templateUrl : 'pages/lists.html',
             // controller  : 'listsController'
         })
+
+        .when('/viewlist', {
+            templateUrl : 'pages/viewlist.html',
+            // controller  : 'viewListController'
+        })
 });
 
 // create the controller and inject Angular's $scope
@@ -169,10 +174,27 @@ scavengrApp.controller('imageFeedController', function($scope) {
 });
 
 scavengrApp.controller('listsController', function($scope) {
+
     console.log("lists controller");
     $scope.pageTitle = "Lists";
     // $scope.message = "yo";
     updateListsFeed();
+
+    $(".list-box").click(function() {
+        scavengrApp.currentList = this.id;
+        console.log(scavengrApp.currentList);
+        // console.log($(".list-box h1").html());
+    });
+});
+
+scavengrApp.controller('viewListController', function($scope) {
+    var listsArray = scavengrApp.listsArray.asArray();
+    console.log("list view controller");
+    $scope.pageTitle = listsArray[listsArray.length-1-scavengrApp.currentList].name;
+    $scope.description = listsArray[listsArray.length-1-scavengrApp.currentList].description;
+    // $scope.message = "yo";
+    // updateListsFeed();
+    updateListImageFeed();
 });
 
 
@@ -190,7 +212,7 @@ function imgurUpload(imgSrc) {
 }
 
 function updateImageFeed() {
-    console.log("here");
+    console.log("updating image feed");
     var imagesArray = scavengrApp.imageArray.asArray();
     for (var i = 0; i < imagesArray.length; i++) {
         // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
@@ -204,15 +226,33 @@ function updateImageFeed() {
     }
 }
 
+function updateListImageFeed() {
+    console.log("updating list image feed");
+    var imagesArray = scavengrApp.listsArray.asArray()[scavengrApp.listsArray.length - 1 - scavengrApp.currentList].images;
+    console.log(imagesArray);
+    for (var i = 0; i < imagesArray.length; i++) {
+        // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
+        // console.log(scavengrApp.imageArray.asArray());
+        var img=document.createElement("img");
+        img.setAttribute('src', imagesArray[i]);
+        img.setAttribute('class', 'image-feed-item');
+        // oImg.setAttribute('height', '1px');
+        // oImg.setAttribute('width', '1px');
+        document.getElementById('listImageFeed').appendChild(img);
+    }
+}
+
 function updateListsFeed() {
     console.log("updating lists");
     var listsArray = scavengrApp.listsArray.asArray();
     for (var i = 0; i < listsArray.length; i++) {
         // images = images + "<img src='" + scavengrApp.imageArray.asArray()[i].image + "'>";
         // console.log(scavengrApp.imageArray.asArray());
-        var list=document.createElement("div");
+        var list=document.createElement("a");
         list.setAttribute('style', "background-image: url('" + listsArray[listsArray.length-1-i].images[0] + "')");
         list.setAttribute('class', 'list-box');
+        list.setAttribute('id', i);
+        list.setAttribute('href', '#viewlist');
         // oImg.setAttribute('height', '1px');
         // oImg.setAttribute('width', '1px');
 
@@ -250,9 +290,13 @@ function addImageToList() {
 
     for (var i = 0; i < listsArray.length; i++) {
         if (listsArray[i].name == list) {
-            listsArray.length++;
-            listsArray[i].images.push("yo");
-            console.log(listsArray[i].images);
+            //////////////////////////////
+            // [TODO: Allow adding image to the list]
+            /////////////
+            // listsArray.length++;
+            // var testArray = listsArray[i].images;
+            // testArray.push("yo");
+            // console.log(testArray);
 
             // console.log("new image added: " + scavengrApp.listsArray.asArray()[i]);
         }

@@ -274,6 +274,7 @@ img {
 #list-container{
 	padding-top: 4em;
 	padding-bottom: 3.5em;
+
 }
 
 #list-container h1 {
@@ -287,6 +288,9 @@ img {
 	width:100%;
 	height:10em;
 	display: block;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50% 50%; 
 }
 
 .list-box:hover, .list-box:focus, .list-box:active {
@@ -299,9 +303,42 @@ img {
 
 .select-list {
 	position: fixed;
-	bottom: 0;
-	margin-bottom: 3.5em;
+	top: 45%;
+	margin-left: 5.5em;
+	/*margin-bottom: 3.5em;*/
 	background-color: rgba(255,255,255,0.5);
+	text-align: center;
+	padding: 2em;
 }
 
+.select-list p {
+	font-family: 'lato', sans-serif;
+	font-style: italic;
+	font-size: 1em;
+	font-weight: 300;
+}
+
+#uploadable-list-options {
+	margin-bottom: 1em;
+}
+
+
+.list-description {
+	margin-top: 3.5em;
+	padding: 1em;
+	position: fixed;
+	background-color: #D6D9BA;
+	width: 100%;
+}
+
+#submit-image {
+	border: 1px black solid;
+	border-radius: 0.5em;
+	font-family: 'lato', sans-serif;
+	font-size: 1em;
+	font-weight: 400;
+	padding: 0.25em;
+	text-decoration: none;
+	display:block;
+}
 
