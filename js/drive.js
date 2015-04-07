@@ -11,8 +11,15 @@
     function initializeModel(model) {
       console.log("New File Created");
       // var string = model.createString('Hello Realtime World!');
-      scavengrApp.imageArray = model.createList([{image: 'http://i.imgur.com/MprxT1s.jpg'}, {image: 'http://i.imgur.com/EE2KJ7P.jpg'}, {image: 'http://i.imgur.com/EwCgQFu.jpg'}, {image: 'http://i.imgur.com/Lr46i2E.jpg'}]);
-      scavengrApp.listsArray = model.createList([{name: 'Dogs', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/MprxT1s.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, {name: 'Take a Hike', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/Lr46i2E.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, {name: 'Valleys', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}]);
+      scavengrApp.imageArray = model.createList([
+        {image: 'http://i.imgur.com/MprxT1s.jpg'}, 
+        {image: 'http://i.imgur.com/EE2KJ7P.jpg'}, 
+        {image: 'http://i.imgur.com/EwCgQFu.jpg'}, 
+        {image: 'http://i.imgur.com/Lr46i2E.jpg'}]);
+      scavengrApp.listsArray = model.createList([
+        {name: 'Dogs', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/MprxT1s.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, 
+        {name: 'Take a Hike', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/Lr46i2E.jpg", "http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}, 
+        {name: 'Valleys', description: 'Take a shot of your favourite hike', images: ["http://i.imgur.com/EwCgQFu.jpg", "http://i.imgur.com/Lr46i2E.jpg"]}]);
       // model.getRoot().set('text', string);
       model.getRoot().set('uploadedImages', scavengrApp.imageArray);
       model.getRoot().set('uploadedLists', scavengrApp.listsArray);

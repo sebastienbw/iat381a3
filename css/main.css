@@ -78,6 +78,7 @@
 	/*width: auto;*/
 	background-color: #000000;
 	overflow-y: scroll;
+	position: fixed;
 }
 
 nav a {
@@ -283,4 +284,12 @@ img {
 #imageFeedList {
 	padding-top: 4em;
 }
+
+.select-list {
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 3.5em;
+	background-color: rgba(255,255,255,0.5);
+}
+
 
