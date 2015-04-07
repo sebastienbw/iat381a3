@@ -110,7 +110,7 @@
       /**
        * Client ID from the console.
        */
-      clientId: '426538219592-e2laldk043f89f34388h62j34p7kthfh.apps.googleusercontent.com',
+      clientId: '281835619763-v61977m1sfscve6ae1lrfv4fik5mkee0.apps.googleusercontent.com',
 
       /**
        * The ID of the button to click to authorize. Must be a DOM element ID.

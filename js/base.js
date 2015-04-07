@@ -245,16 +245,22 @@ function updateUploadableLists() {
 
 function addImageToList() {
     var list = $('#uploadable-list-options').val();
+    var listsArray = scavengrApp.listsArray.asArray();
     // console.log(scavengrApp.listsArray.indexOf({name: list}));
 
+    for (var i = 0; i < listsArray.length; i++) {
+        if (listsArray[i].name == list) {
+            listsArray.length++;
+            listsArray[i].images.push("yo");
+            console.log(listsArray[i].images);
+
+            // console.log("new image added: " + scavengrApp.listsArray.asArray()[i]);
+        }
+        
+    }
     // console.log()
 
     // scavengrApp.listsArray.push({image: })
-    console.log(scavengrApp.listsArray.asArray().filter());
-
-}
-
-function testListName (value) {
-    var list = $('#uploadable-list-options').val();
-    return value.name == list;
+    // console.log(scavengrApp.listsArray.asArray();
+// 
 }
