@@ -29,7 +29,7 @@
         {name: 'Take a Hike', description: 'Take a shot of the scenery', images: ["http://i.imgur.com/6HZXXXw.jpg","http://i.imgur.com/dF6BoJk.jpg","http://i.imgur.com/q77BxZx.jpg","http://i.imgur.com/68bmjj7.jpg"]}, 
         {name: 'Foodies', description: 'Take a shot of your meal', images: ["http://i.imgur.com/jeFXYOo.jpg","http://i.imgur.com/Bc3Fwkq.jpg","http://i.imgur.com/v0tjDNU.jpg","http://i.imgur.com/wRo8PTP.jpg"]},
         {name: 'Vancouver', description: 'Take a shot of this lovely city', images: ["http://i.imgur.com/ioAYemp.jpg","http://i.imgur.com/BN33X32.jpg","http://i.imgur.com/qYNT4cR.jpg","http://i.imgur.com/GKCH0eW.jpg"]},
-        {name: 'Black & White', description: 'Take a shot in black and white', images: ["http://i.imgur.com/tbbXR3i.jpg","http://i.imgur.com/lNuoGtZ.jpg","http://i.imgur.com/t0STnTL.jpg","http://i.imgur.com/9ImlbK7.jpg"]}]);
+        {name: 'Monochrome', description: 'Take a shot in black and white', images: ["http://i.imgur.com/tbbXR3i.jpg","http://i.imgur.com/lNuoGtZ.jpg","http://i.imgur.com/t0STnTL.jpg","http://i.imgur.com/9ImlbK7.jpg"]}]);
       // model.getRoot().set('text', string);
       model.getRoot().set('uploadedImages', scavengrApp.imageArray);
       model.getRoot().set('uploadedLists', scavengrApp.listsArray);
