@@ -176,7 +176,7 @@ scavengrApp.controller('imageFeedController', function($scope) {
 scavengrApp.controller('listsController', function($scope) {
 
     console.log("lists controller");
-    $scope.pageTitle = "Lists";
+    $scope.pageTitle = "Hunts";
     // $scope.message = "yo";
     updateListsFeed();
 
