@@ -11,6 +11,9 @@
     function initializeModel(model) {
       console.log("New File Created");
       // var string = model.createString('Hello Realtime World!');
+      ////////////////////////////////////////////////////
+      //Adding in data since we couldn't get Google Drive persistance to work
+      //
       scavengrApp.imageArray = model.createList([
         {image: 'http://i.imgur.com/MprxT1s.jpg'}, 
         {image: 'http://i.imgur.com/53JQVlf.jpg'}, 
@@ -44,6 +47,8 @@
      */
     function onFileLoaded(doc) {
       console.log("File Loaded");
+      $("#authorizeButton").css('visibility', 'hidden');
+      $("#loginBtn").css('visibility', 'visible');
       // var string = doc.getModel().getRoot().get('text');
       scavengrApp.imageArray = doc.getModel().getRoot().get('uploadedImages');
       scavengrApp.listsArray = doc.getModel().getRoot().get('uploadedLists');
@@ -107,8 +112,8 @@
      * Options for the Realtime loader.
      */
     var realtimeOptions = {
-      /**
-       * Client ID from the console.
+      /**       * Client ID from the console.
+
        */
       clientId: '281835619763-v61977m1sfscve6ae1lrfv4fik5mkee0.apps.googleusercontent.com',
 

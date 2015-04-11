@@ -290,6 +290,19 @@ function addImageToList() {
 
     for (var i = 0; i < listsArray.length; i++) {
         if (listsArray[i].name == list) {
+            // // scavengrApp.listsArray[i].images.push("test");
+            // // listsArray[i].images = "test";
+            // console.log("it hapened dhsajldfasfhjdsl;afjdskal;");
+            // // console.log(listsArray[i].images.asArray());
+            // var tempList = scavengrApp.listsArray.asArray()[i];
+            // scavengrApp.listsArray.remove(i);
+            // // tempList.images.push("yeh");
+
+            // tempList.images.asArray();
+            // console.log(tempList.images.asArray());
+            // scavengrApp.listsArray.push(tempList);
+            // console.log(scavengrApp.listsArray.asArray());
+            // console.log(tempList);
             //////////////////////////////
             // [TODO: Allow adding image to the list]
             /////////////
